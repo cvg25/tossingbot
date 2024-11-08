@@ -445,7 +445,7 @@ class Environment():
             ee_pos = np.array(self.robot.get_cartesian_pose()[0])
             for obj in self.objects:
                 obj_pos = np.array(pybullet.getBasePositionAndOrientation(obj.id)[0])
-                if np.linalg.norm(ee_pos-obj_pos) < 0.2:
+                if np.linalg.norm(ee_pos-obj_pos) < 0.095:
                     obj_id = obj.id
                     break
         return obj_id

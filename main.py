@@ -60,7 +60,7 @@ while step < total_steps:
             total_correct_grasp.append(reward[0])
             total_correct_throw.append(reward[1])
 
-            if len(total_correct_grasp) > 1000:
+            if len(total_correct_grasp) >= 1000:
                 total_correct_grasp = total_correct_grasp[1:]
                 total_correct_throw = total_correct_throw[1:]
             accuracy_grasp = np.array(total_correct_grasp).sum()/1000 if len(total_correct_grasp) == 1000 else (np.array(total_correct_grasp).sum()/len(total_correct_grasp)) * (len(total_correct_grasp)/1000)

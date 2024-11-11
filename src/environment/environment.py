@@ -222,7 +222,7 @@ class Environment():
         return grasp_pose, throw_velocity
 
     def step(self, action):
-        # -1. Save current state of the environment before taking action.
+        # -1. Setup current state of the environment before taking action.
         true_landing_pos = None
         throw_physics_failure = False
         obj_positions_start = self._get_object_positions()
@@ -243,13 +243,6 @@ class Environment():
             true_landing_pos, throw_physics_failure = self.track_object_landing_pos(obj_id=obj_grasped_id)
             self._step_simulation(n_steps=400)
             throw_success = self._check_throw_success(obj_id=obj_grasped_id)
-            """
-            As we show in Sec. VI-E, supervising grasps by the accuracy
-            of throws eventually leads to more stable grasps and better
-            overall throwing performance. The grasping policy learns to
-            favor grasps that lead to successful throws, which is a stronger
-            requirement than simple grasp success.
-            """
         else:
             throw_success = False
             self.gripper.release()

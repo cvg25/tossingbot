@@ -10,8 +10,6 @@ import os
 wandb.login()
 wandb.init(project='tossingbot', name=str(time.time()).split('.')[0])
 
-
-
 env = Environment(seed=47)
 obs, goal = env.reset()
 agent = Agent(robot_base_position=env.robot_base_pos, batch_size=16, run_training=True, device='cuda')
@@ -40,7 +38,6 @@ def toggle_wait():
 
 toggle_wait_thread = threading.Thread(target=toggle_wait, daemon=True)
 toggle_wait_thread.start()
-
 
 
 while step < total_steps:

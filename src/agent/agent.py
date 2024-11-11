@@ -229,8 +229,8 @@ class Agent:
             # Target velocities
             batch_velocities.append([data['target_velocity']])
             # Grasp success
-            # batch_grasps.append([data['throw_success'] or (data['grasp_success'] and data['explore_throw'])])
-            batch_grasps.append([data['throw_success']])
+            batch_grasps.append([data['throw_success'] or (data['grasp_success'] and data['explore_throw'])])
+            #batch_grasps.append([data['throw_success']])
             # Regress throw
             batch_throws.append([data['grasp_success']])
             # Action coordinates

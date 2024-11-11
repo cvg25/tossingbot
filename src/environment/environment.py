@@ -11,7 +11,7 @@ import time
 
 class Environment():
 
-    def __init__(self, seed=47, mode=pybullet.GUI):
+    def __init__(self, seed=1, mode=pybullet.GUI):
         seed_everything(seed=seed)
         self.dt = 1/480.0
         self.sim_step = 0

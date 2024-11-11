@@ -97,6 +97,8 @@ class TossingbotModel(nn.Module):
                 nn.init.zeros_(m.bias)
 
     def forward(self, x, v):
+        # Implicit normalization 
+        x = x - 0.5
         # Extract visual features
         x = self.perception_model(x)
         # Condition x on v
